@@ -13,7 +13,7 @@ from inference.recommendation import (
 
 config = Config.load_config()
 
-if config.get("env") == "dev":
+if config.get("env") == "local":
     bedrock_client = LocalBedrockClient(region_name=config["region"], endpoint_url=config.get("aws_endpoint"))
 else:
     bedrock_client = CognitoBedrockClient(
@@ -50,3 +50,4 @@ async def handle_recommendation(
     model_id = config.get("bedrock_model_id")
     result = recommend_objective(req, bedrock_client=bedrock_client, model_id=model_id)
     return result
+
