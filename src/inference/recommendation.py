@@ -27,7 +27,7 @@ class SimpleContext(BaseModel):
     persona: str | None = None
     domain: str | None = None
     instructions: str | None = None
-    satisfactionCriteria: str | None = None
+    satisfactionCriteria: list[str] | None = None
     extraNotes: str | None = None
 
 
